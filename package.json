@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve sandbox --port=4900",
-    "build": "ng build",
+    "build": "ng build sandbox --configuration production",
+    "build:pages": "ng build sandbox --configuration production --base-href /angular-playwright-wrk/",
     "watch": "ng build --watch --configuration development",
     "e2e": "playwright test e2e/sandbox.spec.ts --project=chromium --ui",
     "e2e:help": "playwright codegen -h",
