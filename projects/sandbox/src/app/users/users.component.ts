@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TrackByFunction } from '@angular/core';
+
+interface User {
+  id: number;
+  name: string;
+}
 
 @Component({
   selector: 'app-users',
@@ -7,9 +12,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent implements OnInit {
 
+  userList: User[] = [
+    { id: 1, name: 'John' },
+    { id: 2, name: 'Jane' },
+    { id: 3, name: 'Bob' },
+    { id: 4, name: 'Alice' },
+    { id: 5, name: 'Doe' },
+  ];
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  userId: TrackByFunction<User> = (index, user: User) => user.id;
 
 }

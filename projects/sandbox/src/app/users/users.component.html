@@ -1,2 +1,6 @@
 <h2>users</h2>
-<p>users works!</p>
+<ng-container *ngFor="let user of userList; trackBy:userId">
+    <div class="user">
+        <span>{{user.name}}</span>
+    </div>
+</ng-container>

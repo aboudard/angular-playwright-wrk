@@ -32,6 +32,9 @@ test('basic test', async ({ page }, testInfo) => {
     await expect(usersLink).toHaveClass('active');
     await expect(title).toHaveText('users');
     await expect(page).toHaveURL('http://localhost:4900/users');
+    // count users
+    const users = page.locator('div.user');
+    await expect(users).toHaveCount(5);
     // screenshot
     /* await testInfo.attach("edit", {
       body: await page.screenshot(),
