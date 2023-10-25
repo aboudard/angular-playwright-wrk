@@ -1,11 +1,8 @@
 name: Playwright Tests
-on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+run-name: ${{ github.actor }} is testing with Playwright ⚔️
+on: [push]
 jobs:
-  test:
+  Playwright-Tests:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -18,7 +15,9 @@ jobs:
     - name: Install Playwright
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npm run e2e
+      env:
+        BASE_URL: 'https://aboudard.github.io/angular-playwright-wrk'
+      run: echo "Running tests on $BASE_URL" && npm run e2e
     - uses: actions/upload-artifact@v2
       if: always()
       with:

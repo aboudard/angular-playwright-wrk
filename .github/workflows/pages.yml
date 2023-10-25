@@ -1,8 +1,8 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: GitHub Pages Actions
+run-name: ${{ github.actor }} is building Pages with GitHub Actions 🚀
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  GitHub-Pages:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -26,4 +26,4 @@ jobs:
           folder: dist/sandbox # The folder the action should deploy.
           token: ${{ secrets.GH_TOKEN }} # GitHub token granted the repo scope.
       - run: echo "Github Pages deployed ⚡"
-      
+  
