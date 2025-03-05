@@ -6,21 +6,21 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
-      with:
-        node-version: '14.x'
-    - name: Install dependencies
-      run: npm i
-    - name: Install Playwright
-      run: npx playwright install --with-deps
-    - name: Run Playwright tests
-      env:
-        BASE_URL: 'https://aboudard.github.io/angular-playwright-wrk'
-      run: echo "Running tests on $BASE_URL" && npm run e2e
-    - uses: actions/upload-artifact@v2
-      if: always()
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3.8.1
+        with:
+          node-version: "16.x"
+      - name: Install dependencies
+        run: npm i
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+      - name: Run Playwright tests
+        env:
+          BASE_URL: "https://aboudard.github.io/angular-playwright-wrk"
+        run: echo "Running tests on $BASE_URL" && npm run e2e
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
