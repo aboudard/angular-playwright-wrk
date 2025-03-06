@@ -1,4 +1,5 @@
 import { Component, OnInit, TrackByFunction } from '@angular/core';
+import { NgFor } from '@angular/common';
 
 interface User {
   id: number;
@@ -6,9 +7,11 @@ interface User {
 }
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss']
+    selector: 'app-users',
+    templateUrl: './users.component.html',
+    styleUrls: ['./users.component.scss'],
+    standalone: true,
+    imports: [NgFor]
 })
 export class UsersComponent implements OnInit {
 
